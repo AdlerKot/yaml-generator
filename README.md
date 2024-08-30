@@ -1,5 +1,6 @@
 # Table with data of promts to generate manifests
 | NAME | PROMPT | DESCRIPTION | EXAMPLE |
+| --- | --- | --- | --- |
 | app.yaml | Create app.yaml with pod name app with image gcr.io/week5-434112/demo:v2.0.0 and http port 8000, labels run demo and app demo | Pod with lables, image and port 8000  | - [app.yaml](https://raw.githubusercontent.com/AdlerKot/yaml-generator/main/yaml/app.yaml) |
 | app-livenessProbe.yaml | pod name app with livness probe to check 8080 port with image gcr.io/week5-434112/demo:v2.0.0 | Add probes to check 8080 port | - [app-livenessProbe.yaml](https://raw.githubusercontent.com/AdlerKot/yaml-generator/main/yaml/app-livenessProbe.yaml) |
 | app-readinessProbe.yaml | pod name app with livness & readiness probe to check 8080 port with image gcr.io/week5-434112/demo:v2.0.0 | Readiness probes to check pod | - [app-readinessProbe.yaml](https://raw.githubusercontent.com/AdlerKot/yaml-generator/main/yaml/app-readinessProbe.yaml) |
