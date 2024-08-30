@@ -1,0 +1,17 @@
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: print-hi-there
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: print-container
+            image: busybox:latest
+            command: ["/bin/sh", "-c"]
+            args: ["echo 'Hi there'"]
+          restartPolicy: OnFailure

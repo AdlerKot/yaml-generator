@@ -1,0 +1,28 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: rsync-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: rsync-container
+        image: alpine:latest
+        command: ["/bin/sh", "-c"]
+        args:
+          - |
+            apk add --no-cache rsync;
+            rsync -av /source-data/ /data/input/;
+        volumeMounts:
+        - mountPath: /data
+          name: data-volume
+        - mountPath: /source-data
+          name: source-data-volume
+      restartPolicy: OnFailure
+      volumes:
+      - name: data-volume
+        persistentVolumeClaim:
+          claimName: data
+      - name: source-data-volume
+        emptyDir: {}
